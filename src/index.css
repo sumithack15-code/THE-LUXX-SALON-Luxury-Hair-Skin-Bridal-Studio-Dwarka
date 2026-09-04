@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, Cambria, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --color-gold: #D4AF37;
+  --color-gold-300: #F3E5AB;
+  --color-gold-400: #E6CA65;
+  --color-gold-500: #D4AF37;
+  --color-gold-600: #AA8C2C;
+  --color-sleek-dark: #0A0A0B;
+  --color-sleek-card: rgba(255, 255, 255, 0.02);
+  --color-sleek-border: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #0A0A0B;
+    color: #E5E7EB;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Sleek subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0B;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Stylish Pink/Purple Neon Instagram Button */
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 4px #fff,
+      0 0 10px #e1306c,
+      0 0 20px #e1306c,
+      0 0 35px #c13584,
+      0 0 50px #833ab4;
+    box-shadow: 
+      0 0 8px #e1306c,
+      0 0 18px #e1306c,
+      0 0 30px rgba(193, 53, 132, 0.45),
+      0 0 45px rgba(131, 58, 180, 0.3),
+      inset 0 0 8px #e1306c;
+    border-color: #e1306c;
+  }
+  50% {
+    text-shadow: 
+      0 0 6px #fff,
+      0 0 14px #e1306c,
+      0 0 28px #e1306c,
+      0 0 45px #c13584,
+      0 0 65px #833ab4;
+    box-shadow: 
+      0 0 14px #e1306c,
+      0 0 28px #e1306c,
+      0 0 42px rgba(193, 53, 132, 0.65),
+      0 0 60px rgba(131, 58, 180, 0.45),
+      inset 0 0 14px #e1306c;
+    border-color: #f77737;
+  }
+}
+
+@keyframes neonHoverFlicker {
+  0%, 100% {
+    box-shadow: 
+      0 0 18px #e1306c,
+      0 0 35px #e1306c,
+      0 0 55px #c13584,
+      0 0 75px #833ab4,
+      inset 0 0 15px rgba(255, 255, 255, 0.4);
+    text-shadow: 
+      0 0 8px #fff,
+      0 0 18px #ffdc80,
+      0 0 30px #e1306c;
+  }
+  50% {
+    box-shadow: 
+      0 0 24px #e1306c,
+      0 0 45px #e1306c,
+      0 0 70px #c13584,
+      0 0 95px #833ab4,
+      inset 0 0 20px rgba(255, 255, 255, 0.6);
+    text-shadow: 
+      0 0 12px #fff,
+      0 0 24px #ffdc80,
+      0 0 38px #e1306c;
+  }
+}
+
+.neon-insta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 28px;
+  color: #fff;
+  background-color: #000;
+  border: 2px solid #e1306c;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transform: translateY(0) scale(1) rotate(0deg);
+  will-change: transform, box-shadow;
+  
+  /* Pink/Purple Neon Glow & Animated Pulse */
+  animation: neonPulse 2s ease-in-out infinite;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.neon-insta-btn i,
+.neon-insta-btn svg {
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Hover Effect - Intense Animated Neon Pulse with Smooth Scaling & Rotation */
+.neon-insta-btn:hover {
+  background-color: #e1306c;
+  color: #fff;
+  border-color: #ffdc80;
+  transform: translateY(-3px) scale(1.05) rotate(-1.2deg);
+  animation: neonHoverFlicker 1.2s ease-in-out infinite;
+}
+
+.neon-insta-btn:hover i,
+.neon-insta-btn:hover svg {
+  transform: scale(1.18) rotate(12deg);
+}
+
+.neon-insta-btn:active {
+  transform: translateY(0px) scale(0.98) rotate(0deg);
+}
+
+
